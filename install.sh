@@ -24,27 +24,25 @@ command_exists () {
 # Cài đặt subfinder nếu chưa có (sử dụng Go)
 if ! command_exists subfinder; then
     echo "[*] subfinder không tồn tại, cài đặt subfinder..."
-    go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+    go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 fi
 
 # Cài đặt httpx CLI nếu chưa có (sử dụng Go)
 if ! command_exists httpx; then
     echo "[*] httpx không tồn tại, cài đặt httpx CLI..."
-    go install github.com/projectdiscovery/httpx/cmd/httpx@latest
+    go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 fi
 
 # Cài đặt waybackurls nếu chưa có (sử dụng Go)
 if ! command_exists waybackurls; then
     echo "[*] waybackurls không tồn tại, cài đặt waybackurls..."
-    go install github.com/tomnomnom/waybackurls@latest
+    go install -v github.com/tomnomnom/waybackurls@latest
 fi
 
-# Kiểm tra urlfinder; vì urlfinder chưa được phát hành trên pip nên thông báo hướng dẫn thủ công
+# Cài đặt urlfinder nếu chưa có (sử dụng Go)
 if ! command_exists urlfinder; then
-    echo "[*] urlfinder không tồn tại."
-    echo "[!] urlfinder chưa được phát hành trên pip."
-    echo "[!] Vui lòng clone repo từ: https://github.com/ProjectScanner/urlfinder"
-    echo "[!] Sau đó, thêm đường dẫn của urlfinder vào PATH của bạn."
+    echo "[*] urlfinder không tồn tại, cài đặt urlfinder..."
+    go install -v github.com/projectdiscovery/urlfinder/cmd/urlfinder@latest
 fi
 
 echo "[*] Cài đặt hoàn tất!"
